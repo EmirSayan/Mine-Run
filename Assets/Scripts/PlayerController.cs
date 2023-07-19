@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
-    public float jumpForce = 10;
+    private float jumpForce = 10;
     public bool isOnGround;
     public bool gameOver = false;
     public GameObject gameOverCanvas;
@@ -15,11 +15,19 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip crashSound;
     private AudioSource playerAudio;
+    private float gravity = 14.715f;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         playerAnimasyon  = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
+
+
+
+        Physics.gravity = new Vector3(0, -gravity, 0);
+        Debug.Log(Physics.gravity);
+        
     }
 
     void Update()
