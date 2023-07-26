@@ -42,6 +42,11 @@ public class PlayerController : MonoBehaviour
             gameOverCanvas.SetActive(false);
         }
         
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
     public void OnCollisionEnter(Collision collision) 
     {
