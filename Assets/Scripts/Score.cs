@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class SaniyelikSkor : MonoBehaviour
+public class Score : MonoBehaviour
 {
     private PlayerController playerControllerScript;
     public TextMeshProUGUI scoreTxet;
     public TextMeshProUGUI lastScore;
     public TextMeshProUGUI lastScore2;
-    public float scoreMiktari;
-    public float saniyedeliArtis;
+    public float score;
+    public float increment;
 
 
 
@@ -18,8 +18,8 @@ public class SaniyelikSkor : MonoBehaviour
     void Start()
     {
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-        scoreMiktari = 0f;
-        saniyedeliArtis = 5f;
+        score = 0f;
+        increment = 5f;
     }
 
     // Update is called once per frame
@@ -27,20 +27,20 @@ public class SaniyelikSkor : MonoBehaviour
     {
         if(playerControllerScript.gameOver == false)
         {
-            scoreTxet.text = (int)scoreMiktari + " ";
-        scoreMiktari += saniyedeliArtis * Time.deltaTime;
+            scoreTxet.text = (int)score + " ";
+            score += increment * Time.deltaTime;
         }
-        if(scoreMiktari > PlayerPrefs.GetInt("_highScore"))
+        if(score > PlayerPrefs.GetInt("_highScore"))
         {
-            PlayerPrefs.SetInt("_highScore", (int)scoreMiktari);
+            PlayerPrefs.SetInt("_highScore", (int)score);
         }
         if(playerControllerScript.gameOver == false)
         {
-            lastScore.text = (int)scoreMiktari + " ";
-        scoreMiktari += saniyedeliArtis * Time.deltaTime;
+            lastScore.text = (int)score + " ";
+            score += increment * Time.deltaTime;
         
-        lastScore2.text = (int)scoreMiktari + " ";
-        scoreMiktari += saniyedeliArtis * Time.deltaTime;
+            lastScore2.text = (int)score + " ";
+            score += increment * Time.deltaTime;
         }
     }
 }

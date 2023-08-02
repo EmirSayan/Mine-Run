@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject engelPrefab;
+    public GameObject Obstacle;
     private Vector3 spawnPos = new Vector3(30,0,0);
-    public float baslamaZamani = 2f;
-    public float tekrarAraligi = 2f; 
+    public float startTime = 2f;
+    public float repeatTime = 2f; 
     private PlayerController playerControllerScript;
     void Start()
     {
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-        InvokeRepeating("EngelYarat", baslamaZamani, tekrarAraligi);
+        InvokeRepeating("CreateObstacle", startTime, repeatTime);
     }
 
     // Update is called once per frame
@@ -20,11 +20,11 @@ public class SpawnManager : MonoBehaviour
     {
         
     }
-    void EngelYarat()
+    void CreateObstacle()
     {
         if(playerControllerScript.gameOver == false)
         {
-            Instantiate(engelPrefab,spawnPos,engelPrefab.transform.rotation);
+            Instantiate(Obstacle, spawnPos, Obstacle.transform.rotation);
         }
     }
 }
