@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: a0744d2aacdf2ac44a3de3eafe751ea9
   - enabled: 1
-    path: Assets/Scenes/Prototype 3.unity
+    path: Assets/Scenes/MineRun.unity
     guid: dc8c9f3efd746429fa6f9482dc779492
   m_configObjects: {}
